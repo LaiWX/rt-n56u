@@ -10,6 +10,7 @@ start_instance() {
 	secret="$(nvram get zerotier_secret)"
 	if [ ! -d "$config_path" ]; then
 		mkdir -p $config_path
+		cp -f /media/AiDisk_a1/planet $config_path
 	fi
 	mkdir -p $config_path/networks.d
 	if [ -n "$port" ]; then
@@ -110,7 +111,7 @@ stop_zero() {
 	del_rules
 	zero_route "del"
 	kill_z
-#	rm -rf $config_path
+ 	rm -rf $config_path
 }
 
 case $1 in
