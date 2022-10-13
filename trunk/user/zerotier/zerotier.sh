@@ -110,7 +110,7 @@ stop_zero() {
 	del_rules
 	zero_route "del"
 	kill_z
-	rm -rf $config_path
+#	rm -rf $config_path
 }
 
 case $1 in
