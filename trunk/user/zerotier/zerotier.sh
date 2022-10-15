@@ -8,10 +8,9 @@ start_instance() {
 	port=""
 	args=""
 	secret="$(nvram get zerotier_secret)"
-	if [ ! -d "$config_path" ]; then
-		mkdir -p $config_path
-		cp -f /media/AiDisk_a1/planet $config_path
-	fi
+	rm -rf $config_path
+	mkdir -p $config_path
+	cp -f /media/AiDisk_a1/planet $config_path
 	mkdir -p $config_path/networks.d
 	if [ -n "$port" ]; then
 		args="$args -p$port"
