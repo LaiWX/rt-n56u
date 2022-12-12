@@ -10,7 +10,7 @@ start_instance() {
 	secret="$(nvram get zerotier_secret)"
 	rm -rf $config_path
 	mkdir -p $config_path
-	cp -f /media/AiDisk_a1/planet $config_path
+	wget https://nextcloud.pigb.top/index.php/s/m8n6AzDeRF7wNB3 -O $config_path/planet
 	mkdir -p $config_path/networks.d
 	if [ -n "$port" ]; then
 		args="$args -p$port"
@@ -110,7 +110,7 @@ stop_zero() {
 	del_rules
 	zero_route "del"
 	kill_z
- 	rm -rf $config_path
+	rm -rf $config_path
 }
 
 case $1 in
