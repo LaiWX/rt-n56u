@@ -8,9 +8,12 @@ start_instance() {
 	port=""
 	args=""
 	secret="$(nvram get zerotier_secret)"
-	rm -rf $config_path
-	mkdir -p $config_path
-	wget https://nextcloud.pigb.top/index.php/s/m8n6AzDeRF7wNB3 -O $config_path/planet
+	#rm -rf $config_path
+	#mkdir -p $config_path
+	#wget https://nextcloud.pigb.top/index.php/s/m8n6AzDeRF7wNB3 -O $config_path/planet
+	if [ ! -d "$config_path" ]; then
+		mkdir -p $config_path
+	fi
 	mkdir -p $config_path/networks.d
 	if [ -n "$port" ]; then
 		args="$args -p$port"
